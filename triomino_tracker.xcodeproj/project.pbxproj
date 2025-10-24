@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		C6FECD312EABE3D700B8F9B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6FECD1B2EABE3D300B8F9B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6FECD222EABE3D400B8F9B6;
+			remoteInfo = triomino_tracker;
+		};
+		C6FECD3B2EABE3D700B8F9B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6FECD1B2EABE3D300B8F9B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6FECD222EABE3D400B8F9B6;
+			remoteInfo = triomino_tracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C6FECD232EABE3D400B8F9B6 /* triomino_tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triomino_tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6FECD302EABE3D700B8F9B6 /* triomino_trackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triomino_trackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6FECD3A2EABE3D700B8F9B6 /* triomino_trackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triomino_trackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C6FECD252EABE3D400B8F9B6 /* triomino_tracker */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = triomino_tracker;
+			sourceTree = "<group>";
+		};
+		C6FECD332EABE3D700B8F9B6 /* triomino_trackerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = triomino_trackerTests;
+			sourceTree = "<group>";
+		};
+		C6FECD3D2EABE3D700B8F9B6 /* triomino_trackerUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = triomino_trackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6FECD202EABE3D400B8F9B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FECD2D2EABE3D700B8F9B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FECD372EABE3D700B8F9B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C6FECD1A2EABE3D300B8F9B6 = {
+			isa = PBXGroup;
+			children = (
+				C6FECD252EABE3D400B8F9B6 /* triomino_tracker */,
+				C6FECD332EABE3D700B8F9B6 /* triomino_trackerTests */,
+				C6FECD3D2EABE3D700B8F9B6 /* triomino_trackerUITests */,
+				C6FECD242EABE3D400B8F9B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6FECD242EABE3D400B8F9B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6FECD232EABE3D400B8F9B6 /* triomino_tracker.app */,
+				C6FECD302EABE3D700B8F9B6 /* triomino_trackerTests.xctest */,
+				C6FECD3A2EABE3D700B8F9B6 /* triomino_trackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6FECD222EABE3D400B8F9B6 /* triomino_tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6FECD442EABE3D700B8F9B6 /* Build configuration list for PBXNativeTarget "triomino_tracker" */;
+			buildPhases = (
+				C6FECD1F2EABE3D400B8F9B6 /* Sources */,
+				C6FECD202EABE3D400B8F9B6 /* Frameworks */,
+				C6FECD212EABE3D400B8F9B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C6FECD252EABE3D400B8F9B6 /* triomino_tracker */,
+			);
+			name = triomino_tracker;
+			packageProductDependencies = (
+			);
+			productName = triomino_tracker;
+			productReference = C6FECD232EABE3D400B8F9B6 /* triomino_tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6FECD2F2EABE3D700B8F9B6 /* triomino_trackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6FECD472EABE3D700B8F9B6 /* Build configuration list for PBXNativeTarget "triomino_trackerTests" */;
+			buildPhases = (
+				C6FECD2C2EABE3D700B8F9B6 /* Sources */,
+				C6FECD2D2EABE3D700B8F9B6 /* Frameworks */,
+				C6FECD2E2EABE3D700B8F9B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6FECD322EABE3D700B8F9B6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C6FECD332EABE3D700B8F9B6 /* triomino_trackerTests */,
+			);
+			name = triomino_trackerTests;
+			packageProductDependencies = (
+			);
+			productName = triomino_trackerTests;
+			productReference = C6FECD302EABE3D700B8F9B6 /* triomino_trackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C6FECD392EABE3D700B8F9B6 /* triomino_trackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6FECD4A2EABE3D700B8F9B6 /* Build configuration list for PBXNativeTarget "triomino_trackerUITests" */;
+			buildPhases = (
+				C6FECD362EABE3D700B8F9B6 /* Sources */,
+				C6FECD372EABE3D700B8F9B6 /* Frameworks */,
+				C6FECD382EABE3D700B8F9B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6FECD3C2EABE3D700B8F9B6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C6FECD3D2EABE3D700B8F9B6 /* triomino_trackerUITests */,
+			);
+			name = triomino_trackerUITests;
+			packageProductDependencies = (
+			);
+			productName = triomino_trackerUITests;
+			productReference = C6FECD3A2EABE3D700B8F9B6 /* triomino_trackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6FECD1B2EABE3D300B8F9B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					C6FECD222EABE3D400B8F9B6 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					C6FECD2F2EABE3D700B8F9B6 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C6FECD222EABE3D400B8F9B6;
+					};
+					C6FECD392EABE3D700B8F9B6 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C6FECD222EABE3D400B8F9B6;
+					};
+				};
+			};
+			buildConfigurationList = C6FECD1E2EABE3D300B8F9B6 /* Build configuration list for PBXProject "triomino_tracker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6FECD1A2EABE3D300B8F9B6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C6FECD242EABE3D400B8F9B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6FECD222EABE3D400B8F9B6 /* triomino_tracker */,
+				C6FECD2F2EABE3D700B8F9B6 /* triomino_trackerTests */,
+				C6FECD392EABE3D700B8F9B6 /* triomino_trackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6FECD212EABE3D400B8F9B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FECD2E2EABE3D700B8F9B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FECD382EABE3D700B8F9B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6FECD1F2EABE3D400B8F9B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FECD2C2EABE3D700B8F9B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FECD362EABE3D700B8F9B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6FECD322EABE3D700B8F9B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6FECD222EABE3D400B8F9B6 /* triomino_tracker */;
+			targetProxy = C6FECD312EABE3D700B8F9B6 /* PBXContainerItemProxy */;
+		};
+		C6FECD3C2EABE3D700B8F9B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6FECD222EABE3D400B8F9B6 /* triomino_tracker */;
+			targetProxy = C6FECD3B2EABE3D700B8F9B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C6FECD422EABE3D700B8F9B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C6FECD432EABE3D700B8F9B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6FECD452EABE3D700B8F9B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sampleware.triomino-tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C6FECD462EABE3D700B8F9B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sampleware.triomino-tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C6FECD482EABE3D700B8F9B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sampleware.triomino-trackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/triomino_tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/triomino_tracker";
+			};
+			name = Debug;
+		};
+		C6FECD492EABE3D700B8F9B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sampleware.triomino-trackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/triomino_tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/triomino_tracker";
+			};
+			name = Release;
+		};
+		C6FECD4B2EABE3D700B8F9B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sampleware.triomino-trackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = triomino_tracker;
+			};
+			name = Debug;
+		};
+		C6FECD4C2EABE3D700B8F9B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72G497WR8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sampleware.triomino-trackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = triomino_tracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6FECD1E2EABE3D300B8F9B6 /* Build configuration list for PBXProject "triomino_tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6FECD422EABE3D700B8F9B6 /* Debug */,
+				C6FECD432EABE3D700B8F9B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6FECD442EABE3D700B8F9B6 /* Build configuration list for PBXNativeTarget "triomino_tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6FECD452EABE3D700B8F9B6 /* Debug */,
+				C6FECD462EABE3D700B8F9B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6FECD472EABE3D700B8F9B6 /* Build configuration list for PBXNativeTarget "triomino_trackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6FECD482EABE3D700B8F9B6 /* Debug */,
+				C6FECD492EABE3D700B8F9B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6FECD4A2EABE3D700B8F9B6 /* Build configuration list for PBXNativeTarget "triomino_trackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6FECD4B2EABE3D700B8F9B6 /* Debug */,
+				C6FECD4C2EABE3D700B8F9B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6FECD1B2EABE3D300B8F9B6 /* Project object */;
+}
