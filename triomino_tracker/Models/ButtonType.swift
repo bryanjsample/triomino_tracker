@@ -21,6 +21,15 @@ enum ButtonType: Hashable, CustomStringConvertible {
         }
     }
     
+    var pointValue: Int {
+        switch self {
+        case.digit:
+            return 0
+        case .scoreAction(let domino):
+            return domino.pointValue
+        }
+    }
+    
     var backgroundColor: Color {
         switch self {
         case .digit:

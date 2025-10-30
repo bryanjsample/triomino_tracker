@@ -14,7 +14,7 @@ struct triomino_trackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NewGameView(gameData: gameData)
+            StartGameView(gameData: gameData)
         }
     }
 }

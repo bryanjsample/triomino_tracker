@@ -22,7 +22,7 @@ struct EmptyWellToggleStyle: ToggleStyle {
                 .minimumScaleFactor(0.5)
                 .background(configuration.isOn ? .gray : .black)
                 .foregroundColor(configuration.isOn ? .black : .white)
-                .clipShape(Capsule())
+                .clipShape(RoundedRectangle(cornerRadius: Constants.padding))
         }
         .buttonStyle(.plain)
     }

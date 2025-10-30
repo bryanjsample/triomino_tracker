@@ -11,11 +11,41 @@ import SwiftUI
 class RoundData {
     let roundID: UUID
     let gameID: UUID
+    var startingTurn : Int
+    var startingPoints: Int
     var moves: [Move]
     
     init(gameID:UUID) {
         self.roundID = UUID()
         self.gameID = gameID
+        self.startingTurn = 0
+        self.startingPoints = 0
         self.moves = []
+    }
+    
+    func addNewMove(move: Move) {
+        self.moves.append(move)
+    }
+    
+    func undoLastMove(gameData: GameData) {
+
+        if let lastMove = self.moves.popLast() {
+            gameData.currentFormationBonus = 0
+            gameData.drawPenalties = 0
+            let numPlayers = gameData.players.count
+            if gameData.currentTurn == 0 {
+                gameData.currentTurn = numPlayers - 1
+            } else {
+                gameData.currentTurn -= 1
+            }
+            
+            lastMove.player.addPlayerScore(score: lastMove.scoreAdded * -1)
+        } else {
+            return
+        }
+    }
+    
+    func setStartingPoints(_ points:Int) {
+        self.startingPoints = points
     }
 }

@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import Observation
 
 // add functionality to all buttons
 // finish styling labels to make it look better
 
 
-struct InGameView: View {
+struct InRoundView: View {
     
     @Bindable var gameData: GameData
     @State var wellIsEmpty: Bool = false
@@ -29,13 +28,12 @@ struct InGameView: View {
     }
 }
 
-struct InGameView_Previews: PreviewProvider {
+struct InRoundView_Previews: PreviewProvider {
     static var previews: some View {
         
         @State var previewData = GameData()
         
-        InGameView(gameData: previewData).onAppear {
-            previewData.startGame()
+        InRoundView(gameData: previewData).onAppear {
             previewData.addPlayer(Player(name: "Richie", score: 0))
             previewData.addPlayer(Player(name: "Bryan", score: 0))
             previewData.addPlayer(Player(name: "Kelissa", score: 0))

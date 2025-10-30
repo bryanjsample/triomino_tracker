@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension InGameView {
+extension InRoundView {
     
     struct ButtonGrid: View {
         
@@ -24,7 +24,7 @@ extension InGameView {
              [.digit(.four), .digit(.five), .digit(.six), .digit(.seven)],
              [.digit(.eight), .digit(.nine), .digit(.ten), .digit(.eleven)],
              [.digit(.twelve), .digit(.thirteen), .digit(.fourteen), .digit(.fifteen)],
-             [.scoreAction(.undo), .scoreAction(.edit), .scoreAction(.new)]]
+             [.scoreAction(.undo), .scoreAction(.new)]]
         }
         
         private var buttonGrid: some View {
@@ -35,10 +35,42 @@ extension InGameView {
                             // create a toggle for status of the well
                             if buttonType.description == "Empty Well" {
                                 EmptyWellToggle(gameData: gameData)
-                            } else { // create a button for everything else
-                                GameButton(buttonType: buttonType) { pressedButton in
-                                    handleButtonPress(pressedButton)
+                            } else if buttonType.description == "New Round" {
+                                NavigationLink(destination: StartRoundView(gameData: gameData).onAppear {
+                                    gameData.nextRound()
+                                    let winner = gameData.checkForWinner()
+                                    
+                                    // logic works and winner is identified at 400 points
+                                    // make it to where it automatically goes to a view for 10 seconds saying that person won then totally reset app
+                                    
+                                    
+                                    if winner == "nobody" {
+                                        print(winner)
+                                    } else {
+                                        print(winner)
+                                    }
+                                }) {
+                                    NewRoundButton(gameData: gameData)
                                 }
+                            } else { // create a button for everything else
+                                if gameData.currentFormationBonus == FormationBonuses.pizza.bonus && buttonType.description == "Pizza Slice\n+25" {
+                                    GameButton(buttonType: buttonType, bgColor: .gray, fgColor: .black) { pressedButton in
+                                        handleButtonPress(pressedButton)
+                                    }
+                                } else if gameData.currentFormationBonus == FormationBonuses.bridge.bonus && buttonType.description == "Bridge\n+40" {
+                                    GameButton(buttonType: buttonType, bgColor: .gray, fgColor: .black) { pressedButton in
+                                        handleButtonPress(pressedButton)
+                                    }
+                                } else if gameData.currentFormationBonus == FormationBonuses.hexagon.bonus && buttonType.description == "Hexagon\n+50" {
+                                    GameButton(buttonType: buttonType, bgColor: .gray, fgColor: .black) { pressedButton in
+                                        handleButtonPress(pressedButton)
+                                    }
+                                } else {
+                                    GameButton(buttonType: buttonType) { pressedButton in
+                                        handleButtonPress(pressedButton)
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -46,7 +78,7 @@ extension InGameView {
             }
         }
         
-        private func handleButtonPress(_ button: ButtonType) {
+        func handleButtonPress(_ button: ButtonType) {
             switch button {
             case .digit(let digit):
                 addScoreAndPass(score: digit.rawValue)
@@ -55,28 +87,42 @@ extension InGameView {
                 case .draw:
                     drawTriomino()
                 case .pizza:
-                    addFormationBonus(bonus: 25)
+                    addFormationBonus(bonus: FormationBonuses.pizza.bonus)
                 case .bridge:
-                    addFormationBonus(bonus: 40)
+                    addFormationBonus(bonus: FormationBonuses.bridge.bonus)
                 case .hexagon:
-                    addFormationBonus(bonus: 50)
+                    addFormationBonus(bonus: FormationBonuses.hexagon.bonus)
                 case .undo:
-                    print("Better get on that shit")
-                case .edit:
-                    print("Better get on that shit")
+                    gameData.rounds[gameData.currentRound].undoLastMove(gameData: gameData)
                 case .new:
-                    print("DO this one")
+                    print("This should never run")
                 case .wellEmpty:
                     print("This should never run")
+                case .name:
+                    print("Implement name tracking for starting turn")
+                case .domino0:
+                    print(button.description)
+                case .domino1:
+                    print(button.description)
+                case .domino2:
+                    print(button.description)
+                case .domino3:
+                    print(button.description)
+                case .domino4:
+                    print(button.description)
+                case .domino5:
+                    print(button.description)
                 }
             }
         }
         
         private func addScoreAndPass(score:Int) {
-            let formationBonus = gameData.formationBonus
+            let formationBonus = gameData.currentFormationBonus
             let drawPenalties = gameData.drawPenalties
             let totalTurnScore = formationBonus + drawPenalties + score
-            gameData.players[gameData.currentTurn].addPlayerScore(score: totalTurnScore)
+            let player = gameData.players[gameData.currentTurn]
+            player.addPlayerScore(score: totalTurnScore)
+            gameData.rounds[gameData.currentRound].addNewMove(move: Move(player: player, scoreAdded: totalTurnScore))
             gameData.nextTurn()
         }
         
@@ -89,7 +135,12 @@ extension InGameView {
         }
         
         private func addFormationBonus(bonus:Int) {
-            gameData.formationBonus = bonus
+            gameData.currentFormationBonus = bonus
+        }
+        
+        private func endRound() {
+            let winningPlayer = gameData.players[gameData.currentTurn - 1]
+            winningPlayer.addPlayerScore(score: 25)
         }
     }
 }

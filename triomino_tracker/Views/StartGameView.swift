@@ -1,5 +1,5 @@
 //
-//  NewGameView.swift
+//  StartGameView.swift
 //  triomino_tracker
 //
 //  Created by Bryan Sample on 10/24/25.
@@ -9,7 +9,7 @@ import SwiftUI
 import Observation
 
 
-struct NewGameView: View {
+struct StartGameView: View {
     
     @Bindable var gameData: GameData
     
@@ -30,44 +30,31 @@ struct NewGameView: View {
                 Spacer()
                 pageTitle
                 playerNameInputFields
-                NavigationLink(destination: InGameView(gameData: gameData).onAppear {
-                    
-                    if playerOneName != "" {
-                        playerOne.setPlayerName(name: playerOneName)
-                        gameData.players.append(playerOne)
-                    }; if playerTwoName != "" {
-                        playerTwo.setPlayerName(name: playerTwoName)
-                        gameData.players.append(playerTwo)
-                    }; if playerThreeName != "" {
-                        playerThree.setPlayerName(name: playerThreeName)
-                        gameData.players.append(playerThree)
-                    }; if playerFourName != "" {
-                        playerFour.setPlayerName(name: playerFourName)
-                        gameData.players.append(playerFour)
-                    }
-                    gameData.startGame()
+                NavigationLink(destination: StartRoundView(gameData: gameData).onAppear {
+                    addPlayers()
                 } ) {
                     startGameButton
                 }
                 Spacer()
             }
-        }
+        }.navigationTitle("")
+            .toolbar(.hidden)
     }
 }
 
-extension NewGameView {
+extension StartGameView {
     
     private var playerNameInputFields: some View {
         VStack(spacing:Constants.padding) {
             TextField("Player One", text: $playerOneName)
+                .textFieldStyle(NameEntryStyle())
             TextField("Player Two", text: $playerTwoName)
+                .textFieldStyle(NameEntryStyle())
             TextField("Player Three", text: $playerThreeName)
+                .textFieldStyle(NameEntryStyle())
             TextField("Player Four", text: $playerFourName)
+                .textFieldStyle(NameEntryStyle())
         }
-            .padding(Constants.padding)
-            .textFieldStyle(.roundedBorder)
-            .font(.system(size: 25))
-            .disableAutocorrection(true)
     }
     
     private var pageTitle: Text {
@@ -78,18 +65,36 @@ extension NewGameView {
     
     private var startGameButton: some View {
         Text("Start Game")
-            .font(.title2)
+            .font(.title)
             .fontWeight(.bold)
-            .frame(width: (UIScreen.main.bounds.width - (Constants.padding * 2)), height: 50.0)
-            .background(Color(.systemGreen))
-            .foregroundStyle(Color(.white))
+            .frame(
+                width: HelperFuncs.getButtonSize(buttonCount: 1.0),
+                height: HelperFuncs.getButtonSize(buttonCount: 6.0)
+            )
+            .background(.black)
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: Constants.padding))
     }
 
-    
+    func addPlayers() {
+        if playerOneName != "" {
+            playerOne.setPlayerName(name: playerOneName)
+            gameData.players.append(playerOne)
+        }; if playerTwoName != "" {
+            playerTwo.setPlayerName(name: playerTwoName)
+            gameData.players.append(playerTwo)
+        }; if playerThreeName != "" {
+            playerThree.setPlayerName(name: playerThreeName)
+            gameData.players.append(playerThree)
+        }; if playerFourName != "" {
+            playerFour.setPlayerName(name: playerFourName)
+            gameData.players.append(playerFour)
+        }
+    }
 }
 
-struct NewGameView_Previews: PreviewProvider {
+struct StartGameView_Previews: PreviewProvider {
     static var previews: some View {
-        NewGameView(gameData: GameData())
+        StartGameView(gameData: GameData())
     }
 }

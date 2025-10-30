@@ -7,8 +7,28 @@
 
 import Foundation
 
-enum ScoreAction: CaseIterable, CustomStringConvertible {
-    case wellEmpty, draw, pizza, bridge, hexagon, edit, undo, new
+enum ScoreAction: Hashable, CaseIterable, CustomStringConvertible {
+    case wellEmpty, draw, pizza, bridge, hexagon, undo, new, name, domino0, domino1, domino2, domino3, domino4, domino5
+    
+    var pointValue: Int {
+        switch self {
+        case .domino0:
+            return 40
+        case .domino1:
+            return 13
+        case .domino2:
+            return 16
+        case .domino3:
+            return 19
+        case .domino4:
+            return 22
+        case .domino5:
+            return 25
+        default:
+            return 0
+            
+        }
+    }
     
     var description: String {
         switch self {
@@ -22,12 +42,24 @@ enum ScoreAction: CaseIterable, CustomStringConvertible {
             return "Bridge\n+40"
         case .hexagon:
             return "Hexagon\n+50"
-        case .edit:
-            return "Edit Scores"
         case .undo:
             return "Undo"
         case .new:
             return "New Round"
+        case .name:
+            return "Name"
+        case .domino0:
+            return "Triple Zeroes"
+        case .domino1:
+            return "Triple Ones"
+        case .domino2:
+            return "Triple Twos"
+        case .domino3:
+            return "Triple Threes"
+        case .domino4:
+            return "Triple Fours"
+        case .domino5:
+            return "Triple Fives"
         }
     }
 }

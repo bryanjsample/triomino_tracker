@@ -36,4 +36,8 @@ class Player: Hashable {
     func addPlayerScore(score: Int) {
         self.score += score
     }
+    
+    func isCurrentPlayer(gameData: GameData) -> Bool {
+        gameData.players[gameData.currentTurn].id == self.id
+    }
 }

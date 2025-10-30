@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-extension InGameView {
+extension InRoundView {
     
     struct EmptyWellToggle: View {
         

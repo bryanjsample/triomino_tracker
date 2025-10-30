@@ -7,23 +7,25 @@
 
 import SwiftUI
 
-extension InGameView {
+struct GameButton: View {
     
-    struct GameButton: View {
-        
-        let buttonType: ButtonType
-        let action: (ButtonType) -> Void
-        
-        var body: some View {
-            Button(buttonType.description) {
-                action(buttonType)
-            }
-                .buttonStyle(GameButtonStyle(
-                    size: HelperFuncs.getButtonSize(buttonCount: 4.0),
-                    fontSize: buttonType.isWide ? 20.0 : 32.0,
-                    backgroundColor: buttonType.backgroundColor,
-                    foregroundColor: buttonType.foregroundColor,
-                    isWide: buttonType.isWide))
+    let buttonType: ButtonType
+    var buttonLabel: String = ""
+    var bgColor: Color = .green
+    var fgColor: Color = .green
+    let action: (ButtonType) -> Void
+    
+    var body: some View {
+        let buttonLabel = buttonLabel == "" ? buttonType.description : buttonLabel
+        Button(buttonLabel) {
+            action(buttonType)
         }
+            .buttonStyle(GameButtonStyle(
+                size: HelperFuncs.getButtonSize(buttonCount: 4.0),
+                fontSize: buttonType.isWide ? 20.0 : 32.0,
+                backgroundColor: bgColor == .green ? buttonType.backgroundColor : bgColor,
+                foregroundColor: fgColor == .green ? buttonType.foregroundColor : fgColor,
+                isWide: buttonType.isWide))
     }
 }
+

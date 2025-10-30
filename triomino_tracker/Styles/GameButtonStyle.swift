@@ -28,7 +28,7 @@ struct GameButtonStyle: ButtonStyle {
                     Color(white: 1.0, opacity: 0.2)
                 }
             }
-            .clipShape(Capsule())
+            .clipShape(RoundedRectangle(cornerRadius: Constants.padding))
     }
 }
 
