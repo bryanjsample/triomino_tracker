@@ -10,14 +10,14 @@ import SwiftUI
 
 enum ButtonType: Hashable, CustomStringConvertible {
     case digit(_ digit:Digit)
-    case scoreAction(_ action:ScoreAction)
+    case gameAction(_ action:GameAction)
     
     var description: String {
         switch self {
         case .digit(let digit):
             return digit.description
-        case .scoreAction(let scoreAction):
-            return scoreAction.description
+        case .gameAction(let gameAction):
+            return gameAction.description
         }
     }
     
@@ -25,7 +25,7 @@ enum ButtonType: Hashable, CustomStringConvertible {
         switch self {
         case.digit:
             return 0
-        case .scoreAction(let domino):
+        case .gameAction(let domino):
             return domino.pointValue
         }
     }
@@ -34,7 +34,7 @@ enum ButtonType: Hashable, CustomStringConvertible {
         switch self {
         case .digit:
             return Color(.lightGray)
-        case .scoreAction:
+        case .gameAction:
             return .black
         }
     }
@@ -43,7 +43,7 @@ enum ButtonType: Hashable, CustomStringConvertible {
         switch self {
         case .digit:
             return .black
-        case.scoreAction:
+        case.gameAction:
             return .white
         }
     }
@@ -52,7 +52,7 @@ enum ButtonType: Hashable, CustomStringConvertible {
         switch self {
         case .digit:
             return false
-        case .scoreAction:
+        case .gameAction:
             return true
         }
     }

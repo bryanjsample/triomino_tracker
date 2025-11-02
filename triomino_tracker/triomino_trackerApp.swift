@@ -9,12 +9,11 @@ import SwiftUI
 
 @main
 struct triomino_trackerApp: App {
-
-    @State var gameData = GameData()
     
     var body: some Scene {
         WindowGroup {
-            StartGameView(gameData: gameData)
+            StartGameView()
+                .preferredColorScheme(.light)
         }
     }
 }

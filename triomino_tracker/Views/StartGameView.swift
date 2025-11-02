@@ -11,7 +11,8 @@ import Observation
 
 struct StartGameView: View {
     
-    @Bindable var gameData: GameData
+    @State var gameData = GameData()
+    @State var path = NavigationPath()
     
     @State private var playerOneName: String = ""
     @State private var playerTwoName: String = ""
@@ -25,19 +26,25 @@ struct StartGameView: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack(path: $path) {
             VStack(spacing:Constants.padding) {
                 Spacer()
                 pageTitle
                 playerNameInputFields
-                NavigationLink(destination: StartRoundView(gameData: gameData).onAppear {
-                    addPlayers()
-                } ) {
-                    startGameButton
-                }
+                startGameButton
                 Spacer()
-            }
-        }.navigationTitle("")
+            }.navigationDestination(for: Route.self) { newView in
+                switch newView {
+                case .startGame:
+                    StartGameView()
+                case .startRound:
+                    StartRoundView(gameData: gameData, path: $path)
+                case .inRound:
+                    InRoundView(gameData: gameData, path: $path)
+               
+        } }
+        }
+        .navigationTitle("")
             .toolbar(.hidden)
     }
 }
@@ -64,16 +71,15 @@ extension StartGameView {
     }
     
     private var startGameButton: some View {
-        Text("Start Game")
-            .font(.title)
+        GameButton(buttonType: ButtonType.gameAction(.startGame)) { pressedButton in
+            
+            // check to make sure there are at least two players added
+            
+            addPlayers()
+            path.append(Route.startRound)
+            
+        }.padding(.horizontal, Constants.padding)
             .fontWeight(.bold)
-            .frame(
-                width: HelperFuncs.getButtonSize(buttonCount: 1.0),
-                height: HelperFuncs.getButtonSize(buttonCount: 6.0)
-            )
-            .background(.black)
-            .foregroundStyle(.white)
-            .clipShape(RoundedRectangle(cornerRadius: Constants.padding))
     }
 
     func addPlayers() {

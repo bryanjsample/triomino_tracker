@@ -1,5 +1,5 @@
 //
-//  ScoreAction.swift
+//  GameAction.swift
 //  triomino_tracker
 //
 //  Created by Bryan Sample on 10/24/25.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum ScoreAction: Hashable, CaseIterable, CustomStringConvertible {
-    case wellEmpty, draw, pizza, bridge, hexagon, undo, new, name, domino0, domino1, domino2, domino3, domino4, domino5
+enum GameAction: Hashable, CaseIterable, CustomStringConvertible {
+    case wellEmpty, draw, pizza, bridge, hexagon, undo, new, name, domino0, domino1, domino2, domino3, domino4, domino5, startGame, startRound
     
     var pointValue: Int {
         switch self {
@@ -60,6 +60,10 @@ enum ScoreAction: Hashable, CaseIterable, CustomStringConvertible {
             return "Triple Fours"
         case .domino5:
             return "Triple Fives"
+        case .startGame:
+            return "Start Game"
+        case .startRound:
+            return "Start Round"
         }
     }
 }

@@ -12,19 +12,20 @@ extension InRoundView {
     struct ButtonGrid: View {
         
         @Bindable var gameData:GameData
+        @Binding var path : NavigationPath
         
         var body: some View {
             buttonGrid
         }
         
         private var buttonTypes: [[ButtonType]] {
-            [[.scoreAction(.wellEmpty), .scoreAction(.draw)],
-             [.scoreAction(.pizza), .scoreAction(.bridge), .scoreAction(.hexagon)],
+            [[.gameAction(.wellEmpty), .gameAction(.draw)],
+             [.gameAction(.pizza), .gameAction(.bridge), .gameAction(.hexagon)],
              [.digit(.zero), .digit(.one), .digit(.two), .digit(.three)],
              [.digit(.four), .digit(.five), .digit(.six), .digit(.seven)],
              [.digit(.eight), .digit(.nine), .digit(.ten), .digit(.eleven)],
              [.digit(.twelve), .digit(.thirteen), .digit(.fourteen), .digit(.fifteen)],
-             [.scoreAction(.undo), .scoreAction(.new)]]
+             [.gameAction(.undo), .gameAction(.new)]]
         }
         
         private var buttonGrid: some View {
@@ -36,21 +37,20 @@ extension InRoundView {
                             if buttonType.description == "Empty Well" {
                                 EmptyWellToggle(gameData: gameData)
                             } else if buttonType.description == "New Round" {
-                                NavigationLink(destination: StartRoundView(gameData: gameData).onAppear {
+                                
+                                GameButton(buttonType: buttonType, bgColor: .black, fgColor: .white) { pressedButton in
+                                    endRound()
                                     gameData.nextRound()
                                     let winner = gameData.checkForWinner()
-                                    
-                                    // logic works and winner is identified at 400 points
-                                    // make it to where it automatically goes to a view for 10 seconds saying that person won then totally reset app
-                                    
-                                    
-                                    if winner == "nobody" {
-                                        print(winner)
+                                    if winner != "nobody" {
+                                        gameData.winner = winner
+                                        while path.count > 0 {
+                                            path.removeLast()
+                                        }
+                                        gameData.resetGame()
                                     } else {
-                                        print(winner)
+                                        path.append(Route.startRound)
                                     }
-                                }) {
-                                    NewRoundButton(gameData: gameData)
                                 }
                             } else { // create a button for everything else
                                 if gameData.currentFormationBonus == FormationBonuses.pizza.bonus && buttonType.description == "Pizza Slice\n+25" {
@@ -70,7 +70,6 @@ extension InRoundView {
                                         handleButtonPress(pressedButton)
                                     }
                                 }
-
                             }
                         }
                     }
@@ -78,44 +77,28 @@ extension InRoundView {
             }
         }
         
-        func handleButtonPress(_ button: ButtonType) {
+        private func handleButtonPress(_ button: ButtonType) {
             switch button {
             case .digit(let digit):
                 addScoreAndPass(score: digit.rawValue)
-            case .scoreAction(let action):
+            case .gameAction(let action):
                 switch action {
                 case .draw:
                     drawTriomino()
                 case .pizza:
-                    addFormationBonus(bonus: FormationBonuses.pizza.bonus)
+                    addFormationBonus(button: button)
                 case .bridge:
-                    addFormationBonus(bonus: FormationBonuses.bridge.bonus)
+                    addFormationBonus(button: button)
                 case .hexagon:
-                    addFormationBonus(bonus: FormationBonuses.hexagon.bonus)
+                    addFormationBonus(button: button)
                 case .undo:
                     gameData.rounds[gameData.currentRound].undoLastMove(gameData: gameData)
-                case .new:
+                default:
                     print("This should never run")
-                case .wellEmpty:
-                    print("This should never run")
-                case .name:
-                    print("Implement name tracking for starting turn")
-                case .domino0:
-                    print(button.description)
-                case .domino1:
-                    print(button.description)
-                case .domino2:
-                    print(button.description)
-                case .domino3:
-                    print(button.description)
-                case .domino4:
-                    print(button.description)
-                case .domino5:
-                    print(button.description)
                 }
             }
         }
-        
+    
         private func addScoreAndPass(score:Int) {
             let formationBonus = gameData.currentFormationBonus
             let drawPenalties = gameData.drawPenalties
@@ -134,13 +117,33 @@ extension InRoundView {
             }
         }
         
-        private func addFormationBonus(bonus:Int) {
-            gameData.currentFormationBonus = bonus
+        private func addFormationBonus(button: ButtonType) {
+            if button.description == "Pizza Slice\n+25" {
+                if gameData.currentFormationBonus == FormationBonuses.pizza.bonus {
+                    gameData.currentFormationBonus = 0
+                } else {
+                    gameData.currentFormationBonus = FormationBonuses.pizza.bonus
+                }
+            } else if button.description == "Bridge\n+40" {
+                if gameData.currentFormationBonus == FormationBonuses.bridge.bonus {
+                    gameData.currentFormationBonus = 0
+                } else {
+                    gameData.currentFormationBonus = FormationBonuses.bridge.bonus
+                }
+            } else if button.description == "Hexagon\n+50" {
+                if gameData.currentFormationBonus == FormationBonuses.hexagon.bonus {
+                    gameData.currentFormationBonus = 0
+                } else {
+                    gameData.currentFormationBonus = FormationBonuses.hexagon.bonus
+                }
+            }
         }
         
         private func endRound() {
-            let winningPlayer = gameData.players[gameData.currentTurn - 1]
+            let winningTurn = gameData.currentTurn == 0 ? gameData.players.count - 1 : gameData.currentTurn - 1
+            let winningPlayer = gameData.players[winningTurn]
             winningPlayer.addPlayerScore(score: 25)
         }
     }
 }
+

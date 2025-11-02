@@ -17,6 +17,7 @@ class GameData {
     var currentFormationBonus: Int
     var drawPenalties: Int
     var wellIsEmpty: Bool
+    var winner : String
     
     
     init() {
@@ -28,6 +29,7 @@ class GameData {
         self.currentFormationBonus = 0
         self.drawPenalties = 0
         self.wellIsEmpty = false
+        self.winner = ""
         self.nextRound()
     }
     
@@ -46,6 +48,7 @@ class GameData {
         if self.rounds.count != 0 {
             self.currentRound += 0
         }
+        
         self.rounds.append(roundData)
         self.rounds[self.currentRound].startingPoints = 0
         self.rounds[self.currentRound].startingTurn = 0
@@ -86,5 +89,19 @@ class GameData {
             return winnerName
         }
     }
-
+    
+    func resetGame() {
+        for player in self.players {
+            player.score = 0
+        }
+        self.players = []
+        self.rounds = []
+        self.currentRound = 0
+        self.currentTurn = 0
+        self.currentFormationBonus = 0
+        self.drawPenalties = 0
+        self.wellIsEmpty = false
+        self.winner = ""
+        self.nextRound()
+    }
 }
