@@ -88,7 +88,11 @@ struct RoundEndView: View {
     private func bindingForPlayer(_ player: Player) -> Binding<String> {
         Binding<String>(
             get: {
-                String(bonuses[player] ?? 0)
+                if let value = bonuses[player] {
+                    return String(value)
+                } else {
+                    return ""
+                }
             },
             set: { newValue in
                 if let val = Int(newValue) {
