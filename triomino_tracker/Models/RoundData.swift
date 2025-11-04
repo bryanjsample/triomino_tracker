@@ -14,6 +14,8 @@ class RoundData {
     var startingTurn : Int
     var startingPoints: Int
     var moves: [Move]
+    var roundWinner: Player?
+    var winBonus: Int
     
     init(gameID:UUID) {
         self.roundID = UUID()
@@ -21,6 +23,8 @@ class RoundData {
         self.startingTurn = 0
         self.startingPoints = 0
         self.moves = []
+        self.roundWinner = nil
+        self.winBonus = 25
     }
     
     func addNewMove(move: Move) {
@@ -30,15 +34,16 @@ class RoundData {
     func undoLastMove(gameData: GameData) {
 
         if let lastMove = self.moves.popLast() {
-            gameData.currentFormationBonus = 0
-            gameData.drawPenalties = 0
-            let numPlayers = gameData.players.count
-            if gameData.currentTurn == 0 {
-                gameData.currentTurn = numPlayers - 1
-            } else {
-                gameData.currentTurn -= 1
+            if lastMove.scoreAdded != -5 {
+                gameData.currentFormationBonus = 0
+                gameData.drawPenalties = 0
+                let numPlayers = gameData.players.count
+                if gameData.currentTurn == 0 {
+                    gameData.currentTurn = numPlayers - 1
+                } else {
+                    gameData.currentTurn -= 1
+                }
             }
-            
             lastMove.player.addPlayerScore(score: lastMove.scoreAdded * -1)
         } else {
             return

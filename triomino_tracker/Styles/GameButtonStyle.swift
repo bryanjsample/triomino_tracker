@@ -17,18 +17,16 @@ struct GameButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: fontSize,  weight: .medium,))
-            .multilineTextAlignment(.center)
-            .frame(width: size, height: size)
-            .frame(maxWidth: isWide ? .infinity : size)
-            .minimumScaleFactor(0.5)
+            .frame(height: size)
             .background(backgroundColor)
-            .foregroundColor(foregroundColor)
+            .foregroundStyle(foregroundColor)
+            .clipShape(RoundedRectangle(cornerRadius: Constants.padding))
             .overlay {
                 if configuration.isPressed {
                     Color(white: 1.0, opacity: 0.2)
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: Constants.padding))
+
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 enum GameAction: Hashable, CaseIterable, CustomStringConvertible {
-    case wellEmpty, draw, pizza, bridge, hexagon, undo, new, name, domino0, domino1, domino2, domino3, domino4, domino5, startGame, startRound
+    case wellEmpty, draw, pizza, bridge, hexagon, undo, name, domino0, domino1, domino2, domino3, domino4, domino5, startGame, endGame, startRound, endRound
     
     var pointValue: Int {
         switch self {
@@ -44,8 +44,6 @@ enum GameAction: Hashable, CaseIterable, CustomStringConvertible {
             return "Hexagon\n+50"
         case .undo:
             return "Undo"
-        case .new:
-            return "New Round"
         case .name:
             return "Name"
         case .domino0:
@@ -60,10 +58,14 @@ enum GameAction: Hashable, CaseIterable, CustomStringConvertible {
             return "Triple Fours"
         case .domino5:
             return "Triple Fives"
+        case .startRound:
+            return "Start New Round"
+        case .endRound:
+            return "End Round"
         case .startGame:
             return "Start Game"
-        case .startRound:
-            return "Start Round"
+        case .endGame:
+            return "End Game"
         }
     }
 }

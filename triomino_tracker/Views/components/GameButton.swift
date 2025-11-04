@@ -17,8 +17,13 @@ struct GameButton: View {
     
     var body: some View {
         let buttonLabel = buttonLabel == "" ? buttonType.description : buttonLabel
-        Button(buttonLabel) {
+        Button(action: {
             action(buttonType)
+        }) {
+            Text(buttonLabel)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
+                .frame(maxWidth: .infinity)
         }
             .buttonStyle(GameButtonStyle(
                 size: HelperFuncs.getButtonSize(buttonCount: 4.0),
@@ -27,5 +32,6 @@ struct GameButton: View {
                 foregroundColor: fgColor == .green ? buttonType.foregroundColor : fgColor,
                 isWide: buttonType.isWide))
     }
+    
 }
 

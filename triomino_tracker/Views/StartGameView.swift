@@ -13,6 +13,7 @@ struct StartGameView: View {
     
     @State var gameData = GameData()
     @State var path = NavigationPath()
+    @State private var showAlert = false
     
     @State private var playerOneName: String = ""
     @State private var playerTwoName: String = ""
@@ -41,6 +42,10 @@ struct StartGameView: View {
                     StartRoundView(gameData: gameData, path: $path)
                 case .inRound:
                     InRoundView(gameData: gameData, path: $path)
+                case .roundEnd:
+                    RoundEndView(gameData: gameData, path: $path)
+                case .gameEnd:
+                    GameEndView(gameData: gameData, path: $path)
                
         } }
         }
@@ -71,15 +76,28 @@ extension StartGameView {
     }
     
     private var startGameButton: some View {
+        
         GameButton(buttonType: ButtonType.gameAction(.startGame)) { pressedButton in
             
-            // check to make sure there are at least two players added
-            
-            addPlayers()
-            path.append(Route.startRound)
+            startGame()
             
         }.padding(.horizontal, Constants.padding)
             .fontWeight(.bold)
+            .alert("Missing Player Names", isPresented: $showAlert) {
+                Button("Ok", role: .cancel) { }
+            } message: {
+                Text("Please enter at least two player names before starting the game")
+            }
+    }
+    
+    private func startGame() {
+        addPlayers()
+        if gameData.players.count < 2 {
+            showAlert = true
+            gameData.players.removeAll()
+        } else {
+            path.append(Route.startRound)
+        }
     }
 
     func addPlayers() {

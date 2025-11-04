@@ -11,18 +11,9 @@ struct InRoundView: View {
     
     @Bindable var gameData: GameData
     @State var wellIsEmpty: Bool = false
-    //    @State private var route: Route? = nil
     @Binding var path: NavigationPath
     
-    
-    
-    /*
-     
-     Struggling to get this working. I am quite certain that I just need to keep track of route state and use switch case block inside of navigationDestination block to determine what view to move to
-     
-     Im grumpy and going to take a break
-     
-     */
+
     
     var body: some View {
         VStack {

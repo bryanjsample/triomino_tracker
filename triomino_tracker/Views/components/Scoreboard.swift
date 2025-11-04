@@ -16,9 +16,6 @@ struct Scoreboard: View {
         scoreboardScores
     }
     
-    // WORKING ON FORMATTING SCOREBOARD TO DISPLAY WHOSE TURN IT IS
-    // THINKING WE NEED TO CREATE A FUNCTION THAT RETURNS A BOOLEAN WHETHER PLAYER.NAME MATCHES INDEX OF CURRENT TURN
-
     var scoreboardNames: some View {
         HStack(spacing:Constants.padding){
             ForEach(gameData.players, id:\.self) { player in

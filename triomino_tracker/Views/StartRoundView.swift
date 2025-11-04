@@ -12,8 +12,6 @@ struct StartRoundView: View {
     @Bindable var gameData: GameData
     @Binding var path: NavigationPath
     
-    // too tired.. trying to get gameWon bool recognized to auto reset game
-    
     var body: some View {
         VStack {
             Spacer()
@@ -92,7 +90,6 @@ extension StartRoundView {
             
             startRound()
             path.append(Route.inRound)
-            print("start round \(path.count)")
             
         }.padding(.horizontal, Constants.padding)
             .fontWeight(.bold)
@@ -108,7 +105,6 @@ extension StartRoundView {
         switch button {
         case .gameAction(.domino0):
             currentRound.setStartingPoints(40)
-            print(String(gameData.rounds.count))
         case .gameAction(.domino1):
             currentRound.setStartingPoints(13)
         case .gameAction(.domino2):

@@ -17,7 +17,7 @@ class GameData {
     var currentFormationBonus: Int
     var drawPenalties: Int
     var wellIsEmpty: Bool
-    var winner : String
+    var winner : Player?
     
     
     init() {
@@ -29,7 +29,7 @@ class GameData {
         self.currentFormationBonus = 0
         self.drawPenalties = 0
         self.wellIsEmpty = false
-        self.winner = ""
+        self.winner = nil
         self.nextRound()
     }
     
@@ -46,7 +46,7 @@ class GameData {
         self.wellIsEmpty = false
         
         if self.rounds.count != 0 {
-            self.currentRound += 0
+            self.currentRound += 1
         }
         
         self.rounds.append(roundData)
@@ -66,27 +66,27 @@ class GameData {
         }
     }
     
-    func checkForWinner() -> String {
-        var winners: [Int:String] = [:]
+    func checkForWinner() -> Player? {
+        var winners: [Int:Player] = [:]
         for player in self.players {
             if player.score >= 400 {
-                winners[player.score] = player.name
+                winners[player.score] = player
             }
         }
         if winners.count == 1 {
             return Array(winners.values)[0]
         } else {
             var highestScore = 0
-            var winnerName = "nobody"
-            for (score, name) in winners {
+            var winner: Player?
+            for (score, player) in winners {
                 if score > highestScore {
                     highestScore = score
-                    winnerName = name
+                    winner = player
                 } else if score == highestScore {
-                    return "nobody"
+                    winner = nil
                 }
             }
-            return winnerName
+            return winner
         }
     }
     
@@ -101,7 +101,7 @@ class GameData {
         self.currentFormationBonus = 0
         self.drawPenalties = 0
         self.wellIsEmpty = false
-        self.winner = ""
+        self.winner = nil
         self.nextRound()
     }
 }

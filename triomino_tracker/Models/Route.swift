@@ -6,5 +6,5 @@
 //
 
 enum Route: Hashable {
-    case startRound, startGame, inRound
+    case startRound, startGame, inRound, roundEnd, gameEnd
 }
