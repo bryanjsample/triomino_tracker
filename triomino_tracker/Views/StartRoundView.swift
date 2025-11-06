@@ -18,8 +18,8 @@ struct StartRoundView: View {
             playerButtons
             Scoreboard(gameData: gameData).scoreboardScores.padding(.bottom, Constants.padding)
             dominoButtons
-            startRoundButton
             Spacer()
+            startRoundButton
         }.navigationTitle("")
             .toolbar(.hidden)
     }
@@ -51,7 +51,7 @@ extension StartRoundView {
                 GameButton(
                     buttonType: ButtonType.gameAction(.name),
                     buttonLabel: player.name,
-                    bgColor: gameData.players.firstIndex(of: player) == gameData.currentTurn ? .gray : .black,
+                    bgColor: gameData.players.firstIndex(of: player) == gameData.currentTurn ? Color(.lightGray) : .black,
                     fgColor: gameData.players.firstIndex(of: player) == gameData.currentTurn ? .black : .white
                     
                 ) { pressedButton in
@@ -74,7 +74,7 @@ extension StartRoundView {
                     ForEach(row, id: \.self) { domino in
                         GameButton(
                             buttonType: domino,
-                            bgColor: gameData.rounds[gameData.currentRound].startingPoints == domino.pointValue ? .gray : .black,
+                            bgColor: gameData.rounds[gameData.currentRound].startingPoints == domino.pointValue ? Color(.lightGray) : .black,
                             fgColor: gameData.rounds[gameData.currentRound].startingPoints == domino.pointValue ? .black : .white
                         ) { pressedButton in
                             setStartingPoints(button: pressedButton)
@@ -123,7 +123,7 @@ extension StartRoundView {
     func startRound() {
         let player = gameData.players[gameData.currentTurn]
         let score = gameData.rounds[gameData.currentRound].startingPoints
-        player.addPlayerScore(score: score)
+        player.addPlayerScore(gameData: gameData, score: score)
         gameData.rounds[gameData.currentRound].addNewMove(move: Move(player: player, scoreAdded: score))
         gameData.nextTurn()
     }

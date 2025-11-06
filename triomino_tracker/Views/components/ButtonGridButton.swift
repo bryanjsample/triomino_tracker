@@ -30,17 +30,17 @@ extension InRoundView {
             } else {
                 // create pizza slice button and highlight if toggled
                 if gameData.currentFormationBonus == FormationBonuses.pizza.bonus && buttonType.description == "Pizza Slice\n+25" {
-                    GameButton(buttonType: buttonType, bgColor: .gray, fgColor: .black) { pressedButton in
+                    GameButton(buttonType: buttonType, bgColor: Color(.lightGray), fgColor: .black) { pressedButton in
                         handleButtonPress(pressedButton)
                     }
                 // create bridge button and highlight if toggled
                 } else if gameData.currentFormationBonus == FormationBonuses.bridge.bonus && buttonType.description == "Bridge\n+40" {
-                    GameButton(buttonType: buttonType, bgColor: .gray, fgColor: .black) { pressedButton in
+                    GameButton(buttonType: buttonType, bgColor: Color(.lightGray), fgColor: .black) { pressedButton in
                         handleButtonPress(pressedButton)
                     }
                 // create hexagon button and highlight if toggled
                 } else if gameData.currentFormationBonus == FormationBonuses.hexagon.bonus && buttonType.description == "Hexagon\n+50" {
-                    GameButton(buttonType: buttonType, bgColor: .gray, fgColor: .black) { pressedButton in
+                    GameButton(buttonType: buttonType, bgColor: Color(.lightGray), fgColor: .black) { pressedButton in
                         handleButtonPress(pressedButton)
                     }
                 // create any other buttons
@@ -69,7 +69,7 @@ extension InRoundView {
                 case .undo:
                     undoMove()
                 case .endRound:
-                    checkForWinner()
+                    endRound()
                 default:
                     print("This should never run")
                 }
@@ -81,7 +81,7 @@ extension InRoundView {
             let drawPenalties = gameData.drawPenalties
             let totalTurnScore = formationBonus + drawPenalties + score
             let player = gameData.players[gameData.currentTurn]
-            player.addPlayerScore(score: totalTurnScore)
+            player.addPlayerScore(gameData: gameData, score: totalTurnScore)
             gameData.rounds[gameData.currentRound].addNewMove(move: Move(player: player, scoreAdded: totalTurnScore))
             gameData.nextTurn()
         }
@@ -91,7 +91,7 @@ extension InRoundView {
                 addScoreAndPass(score: -10)
             } else {
                 let player = gameData.players[gameData.currentTurn]
-                player.addPlayerScore(score: -5)
+                player.addPlayerScore(gameData: gameData, score: -5)
                 gameData.rounds[gameData.currentRound].addNewMove(move: Move(player: player, scoreAdded: -5))
             }
         }
@@ -122,25 +122,15 @@ extension InRoundView {
             gameData.rounds[gameData.currentRound].undoLastMove(gameData: gameData)
         }
         
-        private func checkForWinner() {
+        private func endRound() {
             let winningTurn = gameData.currentTurn == 0 ? gameData.players.count - 1 : gameData.currentTurn - 1
             gameData.currentTurn = winningTurn
             let winningPlayer = gameData.players[winningTurn]
             gameData.rounds[gameData.currentRound].roundWinner = winningPlayer
-            let winner = gameData.checkForWinner()
-            if winner != nil {
-                setWinner(winner: winner!)
-                path.append(Route.gameEnd)
-            } else {
-                path.append(Route.roundEnd)
-            }
+            path.append(Route.roundEnd)
+
         }
-        
-        private func setWinner(winner: Player) {
-            gameData.winner = winner
-            let winnerTurn = gameData.players.firstIndex(of: winner)
-            gameData.currentTurn = winnerTurn!
-        }
+    
     }
     
 }

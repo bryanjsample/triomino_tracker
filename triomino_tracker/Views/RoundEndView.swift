@@ -19,8 +19,10 @@ struct RoundEndView: View {
             Scoreboard(gameData: gameData)
             Spacer()
             roundWinnerText
+            Spacer()
             roundLoserNames
             roundLoserScores
+            Spacer()
             Spacer()
             nextRoundButton
         }.navigationTitle("")
@@ -111,10 +113,17 @@ struct RoundEndView: View {
         GameButton(buttonType: ButtonType.gameAction(.startRound)) { _ in
             
             if let winningPlayer = getRoundWinner() {
-                winningPlayer.addPlayerScore(score: winBonus)
+                winningPlayer.addPlayerScore(gameData: gameData, score: winBonus)
             }
-            gameData.nextRound()
-            path.append(Route.startRound)
+            
+            let winner = gameData.checkForWinner()
+            if winner != nil {
+                setWinner(winner: winner!)
+                path.append(Route.gameEnd)
+            } else {
+                gameData.nextRound()
+                path.append(Route.startRound)
+            }
             
         }.padding(.horizontal, Constants.padding)
             .fontWeight(.bold)
@@ -126,6 +135,12 @@ struct RoundEndView: View {
     
     private func getRoundLosers() -> [Player] {
         gameData.players.filter { $0.name != getRoundWinner()?.name }
+    }
+    
+    private func setWinner(winner: Player) {
+        gameData.winner = winner
+        let winnerTurn = gameData.players.firstIndex(of: winner)
+        gameData.currentTurn = winnerTurn!
     }
     
 }

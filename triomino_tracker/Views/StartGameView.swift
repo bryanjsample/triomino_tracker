@@ -31,9 +31,10 @@ struct StartGameView: View {
             VStack(spacing:Constants.padding) {
                 Spacer()
                 pageTitle
-                playerNameInputFields
-                startGameButton
                 Spacer()
+                playerNameInputFields
+                Spacer()
+                startGameButton
             }.navigationDestination(for: Route.self) { newView in
                 switch newView {
                 case .startGame:

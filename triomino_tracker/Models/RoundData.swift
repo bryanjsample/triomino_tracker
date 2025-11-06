@@ -44,7 +44,7 @@ class RoundData {
                     gameData.currentTurn -= 1
                 }
             }
-            lastMove.player.addPlayerScore(score: lastMove.scoreAdded * -1)
+            lastMove.player.addPlayerScore(gameData: gameData, score: lastMove.scoreAdded * -1)
         } else {
             return
         }
